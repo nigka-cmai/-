@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>美甲價目表</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Noto+Serif+TC:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --blush: #f0e6e0;
+    --rose: #c9a49a;
+    --mauve: #b08080;
+    --deep: #7a5c58;
+    --cream: #faf5f2;
+    --warm-white: #fff9f7;
+    --text: #5a3e3a;
+    --light-text: #9e7a75;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--blush);
+    font-family: 'Noto Serif TC', serif;
+    color: var(--text);
+    min-height: 100vh;
+    background-image:
+      radial-gradient(ellipse at 20% 10%, rgba(201,164,154,0.25) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 90%, rgba(176,128,128,0.2) 0%, transparent 50%);
+  }
+
+  header {
+    text-align: center;
+    padding: 52px 20px 36px;
+    position: relative;
+  }
+
+  .brush-title {
+    display: inline-block;
+    position: relative;
+  }
+
+  .brush-title::before {
+    content: '';
+    position: absolute;
+    left: -18px; right: -18px;
+    top: 50%; transform: translateY(-50%);
+    height: 44px;
+    background: linear-gradient(105deg, var(--mauve) 0%, var(--rose) 55%, transparent 100%);
+    border-radius: 3px 60% 60% 3px / 50%;
+    opacity: 0.55;
+    z-index: 0;
+  }
+
+  .brush-title h1 {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: clamp(2rem, 6vw, 3rem);
+    color: var(--warm-white);
+    letter-spacing: 0.04em;
+    position: relative;
+    z-index: 1;
+    text-shadow: 0 2px 8px rgba(122,92,88,0.3);
+  }
+
+  .subtitle {
+    font-size: 0.78rem;
+    letter-spacing: 0.45em;
+    color: var(--mauve);
+    margin-top: 10px;
+    font-weight: 300;
+  }
+
+  .tab-nav {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    padding: 0 20px 32px;
+    flex-wrap: wrap;
+  }
+
+  .tab-btn {
+    background: transparent;
+    border: 1.5px solid var(--rose);
+    color: var(--mauve);
+    padding: 9px 26px;
+    border-radius: 30px;
+    font-family: 'Noto Serif TC', serif;
+    font-size: 0.88rem;
+    letter-spacing: 0.15em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .tab-btn::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, var(--rose), var(--mauve));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .tab-btn span { position: relative; z-index: 1; }
+
+  .tab-btn:hover::before,
+  .tab-btn.active::before { opacity: 1; }
+
+  .tab-btn:hover,
+  .tab-btn.active {
+    color: var(--warm-white);
+    border-color: transparent;
+    box-shadow: 0 4px 16px rgba(176,128,128,0.35);
+  }
+
+  .content {
+    max-width: 520px;
+    margin: 0 auto;
+    padding: 0 20px 60px;
+  }
+
+  .tab-panel {
+    display: none;
+    animation: fadeUp 0.4s ease;
+  }
+
+  .tab-panel.active { display: block; }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16
